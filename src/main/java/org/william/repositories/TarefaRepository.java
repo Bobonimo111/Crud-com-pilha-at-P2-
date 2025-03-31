@@ -36,7 +36,6 @@ public class TarefaRepository implements ITarefaRepository {
             temp.push(t);
         }
 
-        // Reempilhar as tarefas mantendo a ordem original
         while (!temp.isEmpty()) {
             pilhaTarefas.push(temp.pop());
         }
@@ -61,7 +60,6 @@ public class TarefaRepository implements ITarefaRepository {
             }
         }
 
-        // Reempilhar as tarefas mantendo a ordem original
         while (!temp.isEmpty()) {
             pilhaTarefas.push(temp.pop());
         }
@@ -73,16 +71,13 @@ public class TarefaRepository implements ITarefaRepository {
 
     @Override
     public List<Tarefa> listar() {
-        // Retorna uma cópia dos elementos na pilha (do fundo para o topo)
         List<Tarefa> lista = new ArrayList<>();
         MinhaPilha<Tarefa> temp = new MinhaPilha<>();
 
-        // Desempilhar para uma pilha temporária
         while (!pilhaTarefas.isEmpty()) {
             temp.push(pilhaTarefas.pop());
         }
 
-        // Reempilhar e construir a lista na ordem correta
         while (!temp.isEmpty()) {
             Tarefa t = temp.pop();
             lista.add(t);
